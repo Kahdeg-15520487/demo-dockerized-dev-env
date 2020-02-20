@@ -1,0 +1,26 @@
+documentation
+	mô hình tổng quan các service của docker
+		khái niệm service
+		backend emp api
+			appsetting override
+			
+			https certificate
+			cli vs visual studio container tool
+		azurite
+			set data directory using volume
+			--loose mode
+			config port
+		mssql
+			map seeding script using volume
+			config port
+		định nghĩa quan hệ giữa các service
+			depends_on
+		kết nối các service ntn
+			using service's name
+	guideline cho dev để migrate tới việc sử dụng containerize
+		technical detail cách chạy
+			setup https 
+		các config default và override
+		các principle về config
+		
+	khó khăn và thuận lợi, kinh nghiệm cá nhân
