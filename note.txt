@@ -1,9 +1,8 @@
 documentation
-	mô hình tổng quan các service của docker
-		khái niệm service
+	Overall architecture of services
+		what is a service
 		backend emp api
-			appsetting override
-			
+			appsetting override			
 			https certificate
 			cli vs visual studio container tool
 		azurite
@@ -13,14 +12,41 @@ documentation
 		mssql
 			map seeding script using volume
 			config port
-		định nghĩa quan hệ giữa các service
+		define relationship betweens service
 			depends_on
-		kết nối các service ntn
+		accessing other services
 			using service's name
-	guideline cho dev để migrate tới việc sử dụng containerize
-		technical detail cách chạy
+	guideline for dev on how to use
+		detailed configuration
 			setup https 
-		các config default và override
-		các principle về config
-		
-	khó khăn và thuận lợi, kinh nghiệm cá nhân
+			connection string for mssql and azurite
+		default config and how to override
+	*problem:
+		the entrypoint.sh script for mssql need to go
+		through a unix endline transformation tool (use dos2unix on windows)
+		or else the mssql will error out
+
+
+
+reference
+	azurite docker
+		https://hub.docker.com/_/microsoft-azure-storage-azurite
+	mssql docker
+		https://hub.docker.com/_/microsoft-mssql-server
+		configure in docker
+			https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-docker?view=sql-server-ver15
+		seeding on first start
+			https://github.com/twright-msft/mssql-node-docker-demo-app
+	docker-compose.yml và docker-compose.override.yml
+		https://docs.docker.com/compose/extends/#understanding-multiple-compose-files
+	docker-compose networking
+		https://docs.docker.com/compose/networking/
+	https 
+		how does it work
+			https://en.wikipedia.org/wiki/HTTPS
+			https://dev.to/zenulabidin/lab-how-does-ssl-work-5203
+		HTTPS In Development: WHY
+			https://marmelab.com/blog/2019/01/23/https-in-development.html
+		usage in asp core in docker
+			https://docs.microsoft.com/en-us/aspnet/core/security/docker-https?view=aspnetcore-3.1#running-pre-built-container-images-with-https
+			
